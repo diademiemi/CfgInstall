@@ -14,6 +14,12 @@ if [ -z "$CFG_CONF" ]; then
     CFG_CONF=$HOME/.cfginstall.conf
 fi
 
+# CFG_URL:
+# Download and retrieve the configuration file to $CFG_CONF
+if [ ! -z "$CFG_URL" ]; then
+    curl -o $CFG_CONF $CFG_URL
+fi
+
 source $CFG_CONF
 
 if [ -z "$OPTIONS" ]; then

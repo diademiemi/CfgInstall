@@ -15,6 +15,7 @@ Now you have to define one or more options in `OPTIONS`. In the example `cfginst
 
 For every option you have defined in `OPTIONS`, you'll have to set a description. Create a variable called how you named the option, with `_INFO` appended, like this:  
 `FULL_INFO="full: Clone all config files in this repository"`  
+
 The second required option is the checkout. This defines which files from the repository will be cloned. Create a variable called how you named the option, with `_CHECKOUT` appended. If you want to clone all files, use `/*`. It should look like this.  
 `FULL_CHECKOUT="/*"`  
 
@@ -25,15 +26,20 @@ There are two optional variables too:
 # Installation
 
 When you're done configuring this, you can run the script! It will prompt you which option you will want, then it'll checkout as configured.  
+
 If the configuration file is not located at `$HOME/.cfginstall.conf`, you can define it with the `CFG_CONF` environment variable.  
 If you want the script to retrieve the config file, you can set `CFG_URL`.  
 
 So for example, if you have this script in your current directory, and the config file at `~/.cfginstall.conf` the command would be:  
 `./cfginstall.sh`  
+
 If you want to specify a custom path to the config file use this:  
 `CFG_CONF=/path/to/cfginstall.conf ./cfginstall.sh`  
+
 If you want to retrieve the file from a URL, use the `CFG_URL` variable. For example, with my [cfg repo](https://github.com/diademiemi/cfg) this would be:  
 `CFG_URL="https://raw.githubusercontent.com/diademiemi/cfg/main/.cfginstall.conf" ./cfginstall.sh`  
+
 If you want to use this as a oneliner without needing to download any files, you can use this:  
 `CFG_URL="https://raw.githubusercontent.com/diademiemi/cfg/main/.cfginstall.conf" bash <(wget -qO- https://diademiemi.github.io/CfgInstall/cfginstall.sh)`  
-You can also use `https://raw.githubusercontent.com/diademiemi/CfgInstall/main/cfginstall.sh`, but the one mentioned above is less typing.  
+
+You can also use `https://raw.githubusercontent.com/diademiemi/CfgInstall/main/cfginstall.sh`, but the one mentioned above is a shorter link.  
